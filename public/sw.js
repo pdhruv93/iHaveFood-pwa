@@ -2,7 +2,10 @@
 const staticCacheName = 'site-static-v2';
 const dynamicCacheName = 'site-dynamic-v2';
 
-/*Names of static or shell assets that will be cached*/
+/*Names of static or shell assets that will be cached
+It is /index.html and not ./index.html as we are writing the URLs what the browser will see and hit
+and not the URLS that our code uses
+*/
 const assets = [
   '/',
   '/index.html',
