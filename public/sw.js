@@ -1,6 +1,6 @@
 /*Names of static and Dynmaic caches*/
-const staticCacheName = 'site-static-v1';
-const dynamicCacheName = 'site-dynamic-v1';
+const staticCacheName = 'site-static-v2';
+const dynamicCacheName = 'site-dynamic-v2';
 
 /*Names of static or shell assets that will be cached*/
 const assets = [
@@ -103,7 +103,7 @@ self.addEventListener('fetch', evt => {
         {
           //if there were some error in any of the fetch event and the resource type is of .html, show 404.html page
           //we dont want to show 404.html page in case of errors fetching image files
-          return caches.match('./404.html');
+          return caches.match('/404.html');
         } 
       })
     );
