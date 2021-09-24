@@ -1,0 +1,167 @@
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!--custom css-->
+    <link type="text/css" href="./css/styles.css" rel="stylesheet">
+    <!--google material icons, materialize css and javascript-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  </head>
+
+
+  <body>
+
+    <!--===================================Top Navbar===================================================-->
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#!" class="brand-logo">iHaveFood</a>
+        </div>
+      </nav>
+    </div>
+
+
+    <!--===================================Parallax===================================================-->
+    <div class="parallax-container">
+      <div class="parallax" style="opacity: 0.4;"><img src="./img/2.jpeg"></div>
+    </div>
+    <div class="section white">
+      <div class="row container">
+        <h2 class="header">Did you know?</h2>
+        <p class="grey-text text-darken-3 lighten-3">If food waste was a country, it would be the third biggest emitter of greenhouse gases after USA and China.</p>
+        <p class="grey-text text-darken-3 lighten-3">The aim of this site is just to share your extra food with others</p>
+      </div>
+    </div>
+    <div class="parallax-container">
+      <div class="parallax" style="opacity: 0.4;"><img src="./img/1.jpeg"></div>
+    </div>
+
+
+
+    <!--===================================Floating Add Button===================================================-->
+    <div class="fixed-action-btn">
+      <a class="btn-floating btn-large waves-effect waves-light modal-trigger pulse" href="#formModal" style="background-color: var(--primary-color);">
+        <i class="material-icons">add</i>
+      </a>
+    </div>
+
+    <!--===================================Floating Search Button===================================================-->
+    <div class="fixed-action-btn horizontal search" style="margin-right: 100px;">
+      <a class="btn-floating btn-large red">
+        <i class="large material-icons">search</i>
+      </a>
+      <ul>
+        <li><a class="btn-floating red"><i class="material-icons">search</i></a></li>
+        <li><input id="searchInput" placeholder="Enter a Pincode to filter" type="text" class="validate"></li>
+      </ul>
+    </div>
+
+
+
+    <!--===================================Form Modal===================================================-->
+    <div id="formModal" class="modal">
+      <div class="modal-content">
+        <h4>Add New Entry</h4>
+        <div class="row">
+          <form id="entryForm" class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Enter your food title" id="title" type="text" class="validate" data-length="20" required>
+                <label for="title">Title</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="Enter your full name" id="fullName" type="text" class="validate" required>
+                <label for="fullName">Full Name</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Used for contacting you" id="email" type="email" class="validate" required>
+                <label for="email">Email</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="Optional. If missing you can be contacted over email" id="phone" type="tel" class="validate">
+                <label for="phone">Phone</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Don't enter your complete home address" id="locality" type="text" class="validate" data-length="10" required>
+                <label for="locality">Locality</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="For better filtering" id="pincode" type="number" class="validate" required>
+                <label for="pincode">Pincode</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Last date when you can be contacted for this food" id="expiry" type="text" class="datepicker" required>
+                <label for="expiry">Expiry Date</label>
+              </div>
+              <div class="input-field col s6">
+                <input placeholder="A link to accesible URL for you food. This will be shown on card" id="imageURL" type="url" class="validate">
+                <label for="imageURL">Image URL</label>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="input-field col s12">
+                <textarea id="description" placeholder="A short description of your food. Discuss rest on mail or call" class="materialize-textarea validate" data-length="80" required></textarea>
+                <label for="description">Description</label>
+              </div>
+            </div>
+            
+            <button class="btn waves-effect waves-light" type="submit" style="background-color: var(--primary-color);" name="action">Submit</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!--===================================Cards===================================================-->
+    <div style="margin: 3%;">
+      <div id="entries">
+        <!--Will be populated by Javascript-->
+      </div>
+    </div>
+
+    <!--===================================Footer===================================================-->
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l6 s12">
+            <h5 class="white-text">developed using materialize css</h5>
+            <p>Dont spam the site by posting unnecessary entries</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!--===================================Firebase Config===================================================-->
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.9.1/firebase-firestore.js"></script>
+    <script>
+      // Initialize Firebase
+      const firebaseConfig = {
+        apiKey: "AIzaSyDJpE3iEikCrC2k0WdTNtgjyxWPePqsPLM",
+        authDomain: "ihavefood.firebaseapp.com",
+        projectId: "ihavefood",
+        storageBucket: "ihavefood.appspot.com",
+        messagingSenderId: "711978457264",
+        appId: "1:711978457264:web:2df515496268a27f03c375"
+      };
+      firebase.initializeApp(firebaseConfig);
+      const db = firebase.firestore();
+    </script>
+
+    <script src="./js/scripts.js"></script>
+
+  </body>
+</html>
