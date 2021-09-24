@@ -2,15 +2,31 @@
   <head>
     <!--Responsive Meta Tag-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./js/app.js"></script>
+
     <!--custom css-->
     <link type="text/css" href="./css/styles.css" rel="stylesheet">
+
     <!--google material icons, materialize css and javascript-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Google font-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap" rel="stylesheet">
+
+    <!-- manifest for PWA -->
+    <link rel="manifest" href="./manifest.json">
+
+    <!-- ios support for PWA -->
+    <link rel="apple-touch-icon" href="/img/icons/icon-96x96.png">
+    <meta name="apple-mobile-web-app-status-bar" content="#FFE1C4">
+    <meta name="theme-color" content="#FFE1C4">
   </head>
 
 
@@ -164,6 +180,16 @@
       const db = firebase.firestore();
     </script>
 
+    <!--================================Service worker registration==================================-->
+    <script>
+      if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('./sw.js')
+        .then(reg => console.log('service worker registered'))
+        .catch(err => console.log('service worker not registered', err));
+      }
+    </script>
+
+    <!--================================Custom JavaScript==================================-->
     <script src="./js/scripts.js"></script>
 
   </body>
