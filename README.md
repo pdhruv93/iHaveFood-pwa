@@ -1,17 +1,17 @@
 <h2>Website Component: Materialize Parallax</h2>
-<img src="screenshots/parallax.PNG" width="500">
+<img src="screenshots/parallax.PNG">
 
 <h2>Website Component: Materialize cards</h2>
-<img src="screenshots/cards.PNG" width="500">
+<img src="screenshots/cards.PNG">
 
 <h2>Website Component: Materialize Forms</h2>
-<img src="screenshots/form.PNG" width="350">
+<img src="screenshots/form.PNG">
 
 <h2>Automated Firebase Deployments</h2>
-<img src="screenshots/firebase_release.PNG" width="500">
+<img src="screenshots/firebase_release.PNG">
 
 <h2>Google Lighhouse PWA Audit results</h2>
-<img src="screenshots/lighthouse.PNG" width="500">
+<img src="screenshots/lighthouse.PNG">
 
 <h2>On iPhone PWA</h2>
 <img src="screenshots/mobile.PNG" width="350">
